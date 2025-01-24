@@ -10,6 +10,95 @@
   </head>
   <body>
     <div id="root"></div>
-    
+    <h1>This is the index page for NEPSE-api</h1>
+    <p>Use the following endpoints to access the data</p>
+    <h3> API endpoints </h3>
+    prepend 'https://the-value-crew.github.io/nepse-api/' to all endpoints 
+    <ul>
+        <li>- `/data/info.json` : Brief info on APIs</li>
+        <li>- `/data/companies.json`: Listed companies on Nepse</li>
+        <li>- `/data/date/{{YYYY-MM-DD}}.json`: Daily stocks data by date</li>
+        <li>- `/data/date/latest.json`: Latest data by date </li>
+        <li>- `/data/company/{{company-code}}.json`: Daily data by company code</li>
+    </ul>
+
+    <h3>Examples</h3>
+
+    <h2><a href="https://the-value-crew.github.io/nepse-api/data/info.json">/data/info.json</a></h2>
+<pre>
+{
+    "Name": "Nepse daily data API",
+    "lastUpdatedAt": "2022-02-25 13:11:21"
+}
+</pre>
+
+<h3><a href="https://the-value-crew.github.io/nepse-api/data/companies.json">/data/companies.json</a></h3>
+<pre>
+{
+    "NMBD2085": {
+        "name": "10 % NMB DEBENTURE 2085",
+        "cat": "Corporate Debenture"
+    },
+    "HBLD83": {
+        "name": "10% Himalayan Bank Debenture 2083",
+        "cat": "Corporate Debenture"
+    },
+    "LBLD86": {
+        "name": "10% Laxmi Bank Debenture 2086",
+        "cat": "Corporate Debenture"
+    },
+    "NBLD82": {
+        "name": "10% Nabil Debenture 2082",
+        "cat": "Corporate Debenture"
+    }
+}
+</pre>
+<h3><a href="https://the-value-crew.github.io/nepse-api/data/date/latest.json">/data/date/latest.json</a></h3>
+<pre>
+{
+    "metadata": {
+        "totalAmt": 4293864192,
+        "totalQty": 8490689,
+        "totalTrans": 65011
+    },
+    "data": [
+        {
+            "company": {
+                "code": "NBLD82",
+                "name": "10% Nabil Debenture 2082",
+                "cat": "Corporate Debenture"
+            },
+            "price": {
+                "max": 932.2,
+                "min": 932.2,
+                "close": 932.2,
+                "prevClose": 950.6,
+                "diff": -18.4
+            },
+            "numTrans": 1,
+            "tradedShares": 25,
+            "amount": 23305
+        }
+    ]
+}
+</pre>
+
+<h2>How does it work</h2>
+<p>Nepse operates Sunday to Thursday, from 11:00 AM - 3:00 PM. Each day last 7 days' data is scraped at 10:00 AM, 3:05 PM, and 12:00(midnight). Since Nepse's server crashes frequently, scraping last 7 days' data till today, multiple times a day, seems good approach.</p>
+
+<h2>Todos</h2>
+<ul>
+  <li>- [ ] Split large JSON files into smaller chunks for lighter API response</li>
+  <li>- [ ] Improve landing page</li>
+</ul>
+
+<h2>Nepse-api is used by</h2>
+<ul>
+  <li><a href="https://bibhuticoder.github.io/samaya/">Samaya</a>: friendly personal dashboard on browser's new tab</li>
+</ul>
+
+<h2>Contribution</h2>
+<p>We are open to any kind of suggestions and improvements. Please feel free to contribute by any means possible 😀</p>
+
   </body>
 </html>
